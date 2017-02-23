@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <meta charset=utf-8>
+    <style type="text/css">
+        body{
+            font-size: 16px;
+            color:#666;
+            background: #deeaea;
+        }
+        input{
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+        button{
+            outline:none;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear:both;
+        }
+        #signInAndSignUp{
+            position:relative; 
+            width:300px;
+            height:250px;
+            margin:200px auto;
+            padding: 90px 15px 60px;
+            background:#fff;
+            -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        }
+        #signInAndSignUp:before, #signInAndSignUp:after{
+            content:"";
+            position:absolute; 
+            z-index:-1;
+            -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+            -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+            box-shadow:0 0 20px rgba(0,0,0,0.8);
+            top:50%;
+            bottom:0;
+            left:10px;
+            right:10px;
+            -moz-border-radius:100px / 10px;
+            border-radius:100px / 10px;
+        }
+        #signInAndSignUp .label{
+            float: right;
+            margin: 20px;
+        }
+        #signInAndSignUp label{
+            position: relative;
+            height: 20px;
+            margin-right: 15px;
+            line-height: 20px;
+        }
+        #signInAndSignUp label input{
+            width: 18px;
+            height: 18px;
+            vertical-align:middle;
+            opacity: 0;
+        }
+         #signInAndSignUp label span:before{
+            box-sizing: border-box;
+            content: '';
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border:2px solid #aaa;
+            background: #fff;
+         }
+          #signInAndSignUp label input:checked +span:after{
+            content: '√';
+            position: absolute;
+            left: 0;
+            top:0;
+            font-size: 30px;
+            color:#54b2c1;
+            transform: translate(-2.5px,-4px);
+          }
+        #signInAndSignUp label:hover span:before{
+            border:2px solid #74b2c1;
+        }
+       
+        .formRow{
+            margin: 20px;
+        }
+        .formRow input{
+            height: 30px;
+            line-height: 30px;
+            width: 180px;
+            padding:0 5px;
+            border:1px solid #ccc;
+            box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
+            background: #fff !important;
+        }
+        .formRow input:focus{
+            border:1px solid #84b2c1;
+            box-shadow: 1px 1px 3px 1px rgba(200,234,234,1);
+        }
+        .formActions{
+            text-align: center;
+        }
+        .formActions input,.logout button{
+            margin-top:50px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border:1px solid #fff;
+            background: #84b2c1;
+            color:#fff;
+            box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
+        }
+        .formActions input:hover,.logout button:hover{
+             background: #74b2c1;
+        }
+        #todo{
+            width: 800px;
+            margin:30px auto;
+        }
+        .newTask input{
+            width: 100%;
+            height: 40px;
+            margin:20px 0;
+            border:1px solid #ccc;
+            padding: 0 10px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
+            background: #fff !important;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .newTask input:focus{
+            border:1px solid #888;
+        }
+        .todos li{
+            padding: 20px;
+        }
+        .todos li:hover{
+            background: #eee;
+        }
+
+        .note{
+            float:right;
+        }
+        .note button{
+            border:1px solid #bbb;
+            border-radius: 3px;
+            font-size: 10px;
+            padding: 3px;
+            color:#fff;
+            cursor: pointer;
+            background:#ccc;
+        }
+        .note span:last-child{
+            margin-left: 50px;
+            font-size: 14px;
+            color:#666;
+        }
+        .logout{
+            float: right;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <section id="signInAndSignUp"  v-if="!currentUser">
+            <div class="label">
+                <label>
+                    <input type="radio" name="type" v-model="actionType" value="signUp">
+                    <span>注册</span>
+                </label>
+                <label>
+                    <input type="radio" name="type" v-model="actionType" value="login">
+                    <span>登陆</span>
+                </label>
+            </div>
+            <div class="clearfix"></div>
+            <div class="signUp"  v-if="actionType=='signUp'">
+                <form @submit.prevent="signUp">
+                    <div class="formRow">
+                        <span>用户名：</span><input type="text" v-model="formData.username" >
+                    </div>
+                    <div class="formRow">
+                        <span>密&emsp;码：</span><input type="password" v-model="formData.password">
+                    </div>
+                    <div class="formActions">
+                        <input type="submit" value="注册">
+                    </div>
+                </form>
+            </div>
+            <div class="login" v-if="actionType=='login'">
+                <form @submit.prevent="login">
+                    <div class="formRow">
+                        <span>用户名：</span><input type="text" v-model="formData.username">
+                    </div>
+                    <div class="formRow">
+                       <span>密&emsp;码：</span><input type="password" v-model="formData.password">
+                    </div>
+                    <div class="formActions">
+                        <input type="submit" value="登入">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="todo" v-if="currentUser">
+           <p class="logout"> Hi, {{currentUser.username}}！&emsp;<button @click="logout">登出</button></p>
+            <div class="newTask">
+                <input type="text" v-model="newTodo" @keypress.enter="addTodo" placeholder="请输入待办事项">
+            </div>
+            <ol class="todos">
+                <li v-for="todo in todoList">
+                    <input type="checkbox" v-model="todo.done" @click="updateTodos"> {{ todo.title }}
+                    <div class="note">
+                        <span v-if="todo.done">已完成</span>
+                        <span v-else>未完成</span>
+                        <button @click="removeTodo(todo)">X</button>  
+                        <span>
+                            {{todo.createdAt}}
+                        </span>  
+                    </div>
+                </li>
+            </ol>
+        </section>
+       
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
