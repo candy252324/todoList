@@ -165,14 +165,15 @@ a{
     border:none;
     border-top:1px solid rgba(255,255,255,.5);
     border-left:1px solid rgba(255,255,255,.5);
-    background: #00a500;
-    color:#fff;
+    background: #00a500 !important;
+    color:#fff !important;
     box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.5),0 0 1px 0 rgba(255,255,255,0.8) inset;
     cursor: pointer;
 }
 .formActions input:hover{
     background: #00b500;
 }
+
 #todo{
     padding-top: 30px;
     background: #f6f7f8;
