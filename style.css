@@ -6,10 +6,14 @@ html, body{
     font-size: 16px;
     width: 100%;
     height: 100%;
-    color:#666;
+    color:#333;
+    font-family: "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
 }
 input, button{
     outline: none;
+}
+a{
+    text-decoration: none;
 }
 .clearfix:after{
     content: '';
@@ -38,92 +42,158 @@ input, button{
 #signInAndSignUp .content{
     position: absolute;
     left:50%;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
-    width: 300px;
-    height: 250px;
-    padding: 90px 15px 60px;
+    width: 250px;
+    height: 300px;
+    padding:30px;
+    border:1px solid rgba(255,255,255,.6);
     border-radius: 8;
-    background:#aaa;
-    opacity: .6;
-    box-shadow: 1px 1px 4px 1px rgba(0,0,0,.6);
+    background:rgba(0,0,0,.3);
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,.6), 0 0 3px 0 rgba(255,255,255,.8) inset;
 }
 
 #signInAndSignUp .label{
     float: right;
-    margin: 20px;
 }
 #signInAndSignUp label{
     position: relative;
     height: 20px;
-    margin-right: 15px;
+    margin-left: 15px;
     line-height: 20px;
 }
 #signInAndSignUp label input{
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
     vertical-align:middle;
     opacity: 0;
 }
+#signInAndSignUp label span{
+    margin-left: 23px;
+    color:#fff;
+    font-size: 14px;
+}
 #signInAndSignUp label span:before{
-    box-sizing: border-box;
     content: '';
     position: absolute;
     left: 0;
     top:0;
     width: 20px;
     height: 20px;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.3);
     border-radius: 50%;
-    border:2px solid #aaa;
     background: #fff;
+    opacity:1;
  }
-  #signInAndSignUp label input:checked +span:after{
-    content: '√';
+  #signInAndSignUp label span:after{
+    content: '';
+    box-sizing: border-box;
     position: absolute;
-    left: 0;
-    top:0;
-    font-size: 30px;
-    color:#54b2c1;
-    transform: translate(-2.5px,-4px);
+    left: 3px;
+    top:3px;
+    width: 14px;
+    height: 14px;
+    border:2px solid #333;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom, #333,#555);
   }
-#signInAndSignUp label:hover span:before{
-    border:2px solid #74b2c1;
+#signInAndSignUp label:hover span:after{
+   background: #255728;
+   box-shadow: 0 1px 1px 0 rgba(255,255,255,0.3) inset;
 }
-.formRow{
-    margin: 20px;
+#signInAndSignUp label input:checked +span:after{
+    background: #00a500;
+    box-shadow: 0 1px 1px 0 rgba(255,255,255,0.3) inset;
+
 }
-.formRow input{
-    height: 30px;
-    line-height: 30px;
-    width: 180px;
-    padding:0 5px;
-    border:1px solid #ccc;
-    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
-    background: #fff !important;
-}
-.formRow input:focus{
-    border:1px solid #84b2c1;
-    box-shadow: 1px 1px 3px 1px rgba(200,234,234,1);
-}
-.formActions{
+ #signInAndSignUp .tip{
+    display: block;
+    font-size: 12px;
+    color:#fff;
+    margin-top:40px;
     text-align: center;
 }
-.formActions input,.logout button{
-    margin-top:50px;
-    padding: 5px 10px;
+.formRow{
+    position: relative;
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+    padding: 3px 0;
     border-radius: 5px;
-    border:1px solid #fff;
-    background: #84b2c1;
     color:#fff;
-    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
 }
-.formActions input:hover,.logout button:hover{
-     background: #74b2c1;
+.formRow i{
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin:0 5px;
+    font-size: 20px;
+    text-align: center;
+    z-index: 1;
+}
+.formRow input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    padding-left: 45px;
+    background: rgba(0,0,0,.5);
+    color:#fff;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.9) inset;
+
+}
+.formRow input:focus{
+   border:1px solid #ccc;
+   box-shadow: 0 0 3px 0 rgba(255,255,255,0.9);
+}
+
+.formActions input{
+    width: 100%;
+    margin-top:20px;
+    padding: 10px;
+    border-radius: 5px;
+    border:none;
+    border-top:1px solid rgba(255,255,255,.5);
+    border-left:1px solid rgba(255,255,255,.5);
+    background: #00a500;
+    color:#fff;
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.5),0 0 1px 0 rgba(255,255,255,0.8) inset;
+    cursor: pointer;
+}
+.formActions input:hover{
+    background: #00b500;
 }
 #todo{
+    padding-top: 30px;
+    background: #f6f7f8;
+}
+.todo-ct{
     width: 800px;
-    margin:30px auto;
+    margin:0 auto;
+}
+.logout button{
+    padding:5px 12px;
+    background: #55aaad;
+    border-radius: 5px;
+    color:#f5f5f5;
+    border:none;
+    border-top:1px solid #fff;
+    border-left:1px solid #fff;
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.logout button:hover{
+     background: #269d81;
 }
 .newTask input{
     width: 100%;
@@ -138,15 +208,16 @@ input, button{
     font-size: 16px;
 }
 .newTask input:focus{
-    border:1px solid #888;
+    border:1px solid #3ebcca;
+    box-shadow: 1px 1px 3px 1px rgba(62,188,202,0.3);
 }
 .todos li{
     padding: 20px;
 }
 .todos li:hover{
     background: #eee;
+    color:#333;
 }
-
 .note{
     float:right;
 }
@@ -166,3 +237,4 @@ input, button{
 }
 .logout{
     float: right;
+}
