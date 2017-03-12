@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <meta charset=utf-8>
+   <link rel="stylesheet" href="./iconfont/iconfont.css">
+   <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="app">
+        <section id="signInAndSignUp"  v-if="!currentUser">
+            <div class="cover"></div>
+            <div class="content">
+                <div class="label">
+                    <label>
+                        <input type="radio" name="type" v-model="actionType" value="signUp">
+                        <span>Sign In</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="type" v-model="actionType" value="login">
+                        <span>Login In</span>
+                    </label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="signUp"  v-if="actionType=='signUp'">
+                    <form @submit.prevent="signUp">
+                        <div class="formRow">
+                            <i class="icon iconfont">&#xe602;</i></span><input type="text" v-model="formData.username" >
+                        </div>
+                        <div class="formRow">
+                            <i class="icon iconfont">&#xe634;</i></span><input type="password" v-model="formData.password">
+                        </div>
+                        <div class="formActions">
+                            <input type="submit" value="Sign In">
+                        </div>
+                    </form>
+                </div>
+                <div class="login" v-if="actionType=='login'">
+                    <form @submit.prevent="login">
+                        <div class="formRow">
+                            <span>用户名：</span><input type="text" v-model="formData.username">
+                        </div>
+                        <div class="formRow">
+                           <span>密&emsp;码：</span><input type="password" v-model="formData.password">
+                        </div>
+                        <div class="formActions">
+                            <input type="submit" value="Login In">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="todo" v-if="currentUser">
+           <p class="logout"> Hi, {{currentUser.username}}！&emsp;<button @click="logout">登出</button></p>
+            <div class="newTask">
+                <input type="text" v-model="newTodo" @keypress.enter="addTodo" placeholder="请输入待办事项">
+            </div>
+            <ol class="todos">
+                <li v-for="todo in todoList">
+                    <input type="checkbox" v-model="todo.done" @click="updateTodos"> {{ todo.title }}
+                    <div class="note">
+                        <span v-if="todo.done">已完成</span>
+                        <span v-else>未完成</span>
+                        <button @click="removeTodo(todo)">X</button>  
+                        <span>
+                            {{todo.createdAt}}
+                        </span>  
+                    </div>
+                </li>
+            </ol>
+        </section>
+       
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
