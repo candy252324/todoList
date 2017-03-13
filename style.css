@@ -220,6 +220,9 @@ a{
 .todos li:hover{
     background:rgba(0,0,0,0.1) ;
 }
+.todos input{
+    cursor: pointer;
+}
 .note{
     float:right;
 }
@@ -233,7 +236,7 @@ a{
     background:#ccc;
 }
 .note button:hover{
-    background:red;
+    background:#5ca7ab;
 }
 .note span:last-child{
     margin-left: 50px;
