@@ -150,7 +150,9 @@ a{
     border:none;
     border-radius: 5px;
     box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.9) inset;
-
+}
+.formRow input:-webkit-autofill{
+    background: rgba(0,0,0,.5) ;
 }
 .formRow input:focus{
    border:1px solid #ccc;
