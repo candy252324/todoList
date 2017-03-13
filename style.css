@@ -232,6 +232,9 @@ a{
     cursor: pointer;
     background:#ccc;
 }
+.note button:hover{
+    background:red;
+}
 .note span:last-child{
     margin-left: 50px;
     font-size: 14px;
