@@ -175,7 +175,8 @@ a{
 
 #todo{
     padding-top: 30px;
-    background: #f6f7f8;
+    background: url(./img/bg2.png);
+    min-height: 100%;
 }
 .todo-ct{
     width: 800px;
@@ -183,17 +184,17 @@ a{
 }
 .logout button{
     padding:5px 12px;
-    background: #55aaad;
+    background: #5ca7bc;
     border-radius: 5px;
     color:#f5f5f5;
     border:none;
     border-top:1px solid #fff;
-    border-left:1px solid #fff;
     box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.5);
     cursor: pointer;
 }
 .logout button:hover{
-     background: #269d81;
+     background: #5ca7ab;
+      box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
 }
 .newTask input{
     width: 100%;
@@ -208,15 +209,15 @@ a{
     font-size: 16px;
 }
 .newTask input:focus{
-    border:1px solid #3ebcca;
-    box-shadow: 1px 1px 3px 1px rgba(62,188,202,0.3);
+    border:1px solid #5ca7bc;
+    box-shadow: 1px 1px 3px 1px rgba(176,223,229,0.9);
 }
 .todos li{
     padding: 20px;
+    border-radius: 5px;
 }
 .todos li:hover{
-    background: #eee;
-    color:#333;
+    background:rgba(0,0,0,0.1) ;
 }
 .note{
     float:right;
