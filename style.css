@@ -174,10 +174,11 @@ a{
 }
 
 #todo{
-    padding-top: 30px;
+    padding:40px 0 80px;
     background: url(./img/bg2.png);
-    min-height: 100%;
+    min-height: 1000px;
 }
+
 .todo-ct{
     width: 800px;
     margin:0 auto;

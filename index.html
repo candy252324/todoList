@@ -53,13 +53,13 @@
         </section>
 
         <section id="todo" v-if="currentUser">
-            <div class="todo-ct">
+            <div class="todo-ct clearfix">
                 <p class="logout"> Hi, {{currentUser.username}}！&emsp;<button @click="logout">登出</button></p>
                 <div class="newTask">
                     <input type="text" v-model="newTodo" @keypress.enter="addTodo" placeholder="请输入待办事项">
                 </div>
                 <ol class="todos">
-                    <li v-for="todo in todoList">
+                    <li v-for="todo in todoList" class="clearfix">
                         <input type="checkbox" v-model="todo.done" @click="updateTodos"> {{ todo.title }}
                         <div class="note">
                             <span v-if="todo.done">已完成</span>
